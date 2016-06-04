@@ -4,6 +4,9 @@ using System.Collections;
 
 public class ScriptMenu : MonoBehaviour 
 {
+	//insertion TotalGame - script interscene
+	private TotalGame totalGame;
+
 
 	public GameObject firstMenu;
 	public GameObject secondMenu;
@@ -30,7 +33,24 @@ public class ScriptMenu : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		CacheCache ();
+		//on appelle totalgame
+		totalGame = TotalGame.GetInstance();
+
+		CacheCache (); //on cache tout avant de chercher
+
+		//on va demander à totalgame si le first menu a déjà été vu
+		intMenu = totalGame.GetMenu();
+
+		if (intMenu != 1) 
+		{
+			FirstMenuON();
+		}
+		else 
+		{
+			SecondMenuON ();
+		}
+			
+
 	}
 	
 	// Update is called once per frame
@@ -130,7 +150,9 @@ public class ScriptMenu : MonoBehaviour
 	{
 		CacheCache ();
 		firstMenu.SetActive (true);
+		boutonBack.SetActive (false);
 		intMenu = 1;
+		totalGame.SetMenu (intMenu); //on avertit le script interscene que le first menu a déjà été lancé
 	}
 
 	public void SecondMenuON()//le joueur revient sur le menu principal
@@ -179,7 +201,6 @@ public class ScriptMenu : MonoBehaviour
 		if (intMenu == 2) 
 		{
 			FirstMenuON ();
-			boutonBack.SetActive (false);
 		} 
 		else if (intMenu == 3) 
 		{
