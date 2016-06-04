@@ -2,12 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ScriptMenu : MonoBehaviour {
+public class ScriptMenu : MonoBehaviour 
+{
 
 	public GameObject firstMenu;
 	public GameObject secondMenu;
 	public GameObject thirdMenu;
 	public GameObject fourthMenu;
+	public GameObject boutonBack;
 
 	int intMenu;
 	bool firstMenuBool = true;
@@ -46,11 +48,13 @@ public class ScriptMenu : MonoBehaviour {
 		firstMenu.SetActive (true);
 		intMenu = 1;
 		firstMenuBool = true;
+		print ("Play ?");
 	}
 
 	public void SecondMenuON()//le joueur revient sur le menu principal
 	{
 		CacheCache ();
+		boutonBack.SetActive (true);
 		secondMenu.SetActive (true);
 		intMenu = 2;
 	}
@@ -74,6 +78,7 @@ public class ScriptMenu : MonoBehaviour {
 		if (intMenu == 2) 
 		{
 			FirstMenuON ();
+			boutonBack.SetActive (false);
 		} 
 		else if (intMenu == 3) 
 		{
@@ -89,7 +94,6 @@ public class ScriptMenu : MonoBehaviour {
 	{
 		Application.LoadLevel ("MONSIEUR_LARRY 1");
 	}
-
 	public void Quitter()//Quitte le jeu sur pc, et met en arrière plan sur tablette et téléphone
 	{
 		Application.Quit ();
