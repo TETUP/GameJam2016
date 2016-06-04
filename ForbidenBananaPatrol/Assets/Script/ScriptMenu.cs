@@ -30,6 +30,12 @@ public class ScriptMenu : MonoBehaviour
 	int choixP3 = 0;
 	int choixP4 = 0;
 
+	//Choix du personnage pour chaque joueur
+	int choixPersoP1 = 0;
+	int choixPersoP2 = 0;
+	int choixPersoP3 = 0;
+	int choixPersoP4 = 0;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -38,14 +44,14 @@ public class ScriptMenu : MonoBehaviour
 
 		CacheCache (); //on cache tout avant de chercher
 
-		//on va demander à totalgame si le first menu a déjà été vu
+		//on va demander à totalgame si le first menu a déjà été vu depuis le lancement du jeu
 		intMenu = totalGame.GetMenu();
 
-		if (intMenu != 1) 
+		if (intMenu != 1) //le joueur vient de lancer le jeu donc on lui présente le first menu
 		{
 			FirstMenuON();
 		}
-		else 
+		else //le joueur avait déjà lancé le jeu, il revient sur le menu donc on passe direct au second menu
 		{
 			SecondMenuON ();
 		}
@@ -60,14 +66,35 @@ public class ScriptMenu : MonoBehaviour
 			BoutonOk ();
 
 		if (intMenu == 3){
-			if(Input.GetButtonDown ("Jump1")){
+
+			bool axisP1InUse = false; //le joueur 1 n'utilise pas son axis
+
+			if (Input.GetButtonDown ("Next")) //le joueur 1 vient d'appuyer sur la fleche droite dans sélection perso
+			{
+				if (axisP1InUse == false)
+				{
+					axisP1InUse = true;
+					FlecheP1Droite ();
+				}
+			}
+			else if (Input.GetButtonDown ("Previous"))  //le joueur 1 vient d'appuyer sur la fleche gauche dans sélection perso
+			{
+				if (axisP1InUse == false)
+				{
+					axisP1InUse = true;
+					FlecheP1Gauche ();
+				}
+			}
+				
+			if (Input.GetButtonDown ("Jump1")) {
+
 				//imageP1.GetComponent<Image> ().sprite = Resources.Load (); //Charge l'image du perso 1 pour le joueur 1
 				if (!triggerCompte) {
 					debutCompte = Time.time;
 					triggerCompte = true;
 					choixP1++;
 				} else if (choixP1 == 1) {
-					//enregistré le choix dans le player pref
+					PlayerPrefs.SetInt ("Choix_Player_1", choixPersoP1); //on enregistre le choix dans le player pref
 					delay -= 2.0f; 
 					Debug.Log ("Choix Joueur 1");
 				} else if (choixP1 < 1) {
@@ -82,7 +109,7 @@ public class ScriptMenu : MonoBehaviour
 					triggerCompte = true;
 					choixP2++;
 				} else if (choixP2 == 1) {
-					//enregistré le choix dans le player pref
+					PlayerPrefs.SetInt("Choix_Player_2", choixPersoP2); //on enregistre le choix dans le player pref
 					delay -= 2.0f; 
 					Debug.Log ("Choix Joueur 2");
 				} else if (choixP2 < 1) {
@@ -97,7 +124,7 @@ public class ScriptMenu : MonoBehaviour
 					triggerCompte = true;
 					choixP3++;
 				} else if (choixP3 == 1) {
-					//enregistré le choix dans le player pref
+					PlayerPrefs.SetInt("Choix_Player_3", choixPersoP3); //on enregistre le choix dans le player pref
 					delay -= 2.0f; 
 					Debug.Log ("Choix Joueur 3");
 				} else if (choixP3 < 1) {
@@ -112,7 +139,7 @@ public class ScriptMenu : MonoBehaviour
 					triggerCompte = true;
 					choixP4++;
 				} else if (choixP4 == 1) {
-					//enregistré le choix dans le player pref
+					PlayerPrefs.SetInt("Choix_Player_4", choixPersoP4); //on enregistre le choix dans le player pref
 					delay -= 2.0f; 
 					Debug.Log ("Choix Joueur 4");
 				} else if (choixP4 < 1) {
@@ -219,5 +246,36 @@ public class ScriptMenu : MonoBehaviour
 	public void Quitter()//Quitte le jeu sur pc, et met en arrière plan sur tablette et téléphone
 	{
 		Application.Quit ();
+	}
+
+
+	//fleche choix personnages pour les joueurs
+	public void FlecheP1Droite()
+	{
+		if (choixPersoP1 < 3) 
+		{
+			choixPersoP1++;
+			print (choixPersoP1);
+		}
+		else if (choixPersoP1 == 3)
+		{
+			choixPersoP1 = 0;
+			print (choixPersoP1);
+		}
+
+	}
+	public void FlecheP1Gauche()
+	{
+		if (choixPersoP1 > 0) 
+		{
+			choixPersoP1--;
+			print (choixPersoP1);
+		}
+		else if (choixPersoP1 == 0)
+		{
+			choixPersoP1 = 3;
+			print (choixPersoP1);
+		}
+
 	}
 }
