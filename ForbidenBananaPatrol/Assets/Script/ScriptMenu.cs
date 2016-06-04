@@ -58,7 +58,7 @@ public class ScriptMenu : MonoBehaviour
 		intMenu = 2;
 	}
 
-	public void ThirdMenuON()//Choix du personnage
+	public void ThirdMenuON()//Choix du personnage - Insérer ici la connexion des joueurs
 	{
 		CacheCache ();
 		thirdMenu.SetActive (true);
@@ -91,7 +91,7 @@ public class ScriptMenu : MonoBehaviour
 
 	public void GoJouer()//lance la partie après le choix de l'arène
 	{
-		Application.LoadLevel ("MONSIEUR_LARRY 1");
+		Application.LoadLevel ("Niveau1");
 	}
 	public void Quitter()//Quitte le jeu sur pc, et met en arrière plan sur tablette et téléphone
 	{
