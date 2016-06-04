@@ -48,7 +48,6 @@ public class ScriptMenu : MonoBehaviour
 		firstMenu.SetActive (true);
 		intMenu = 1;
 		firstMenuBool = true;
-		print ("Play ?");
 	}
 
 	public void SecondMenuON()//le joueur revient sur le menu principal
