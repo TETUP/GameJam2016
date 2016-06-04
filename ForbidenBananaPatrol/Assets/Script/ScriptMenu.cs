@@ -13,10 +13,7 @@ public class ScriptMenu : MonoBehaviour
 	public GameObject thirdMenu;
 	public GameObject fourthMenu;
 	public GameObject boutonBack;
-	public GameObject imageP1;
-	public GameObject imageP2;
-	public GameObject imageP3;
-	public GameObject imageP4;
+
 	public Text compteARebour;
 
 	int intMenu;
@@ -35,6 +32,14 @@ public class ScriptMenu : MonoBehaviour
 	int choixPersoP2 = 0;
 	int choixPersoP3 = 0;
 	int choixPersoP4 = 0;
+
+	//GROS TRUCS DEGUEU 4X4 IMAGES PERSO
+	//JOUEUR 1
+	public GameObject P1Char1;
+	public GameObject P1Char2;
+	//public GameObject P1Char3;
+	//public GameObject P1Char4;
+
 
 	// Use this for initialization
 	void Start () 
@@ -111,8 +116,9 @@ public class ScriptMenu : MonoBehaviour
 				
 			if (Input.GetButtonDown ("Jump1")) {
 
-				//imageP1.GetComponent<Image> ().sprite = Resources.Load (); //Charge l'image du perso 1 pour le joueur 1
 				if (!triggerCompte) {
+					//imageP1.GetComponent<Image> ().sprite = (Sprite)Resources.Load ("Resources/Sprites/Personnages/Perso01"); //Charge l'image du perso 1 pour le joueur 1
+
 					debutCompte = Time.time;
 					triggerCompte = true;
 					choixP1++;
@@ -272,7 +278,6 @@ public class ScriptMenu : MonoBehaviour
 	{
 		Application.Quit ();
 	}
-
 
 	//FLECHES CHOIX PERSO
 
