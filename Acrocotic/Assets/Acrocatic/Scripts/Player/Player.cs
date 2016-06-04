@@ -115,7 +115,7 @@ namespace Acrocatic {
 			}
 
 			// Change the side marker positions.
-			//playerHitbox.ChangeSidePositions();
+			playerHitbox.ChangeSidePositions();
 		}
 
 		// This function is called every fixed framerate frame.
