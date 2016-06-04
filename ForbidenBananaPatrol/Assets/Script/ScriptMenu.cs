@@ -12,6 +12,7 @@ public class ScriptMenu : MonoBehaviour
 	public GameObject secondMenu;
 	public GameObject thirdMenu;
 	public GameObject fourthMenu;
+	public GameObject fifthMenu;
 	public GameObject boutonBack;
 
 	public Text compteARebour;
@@ -21,7 +22,7 @@ public class ScriptMenu : MonoBehaviour
 	bool triggerCompte = false;
 	float debutCompte = 0.0f;
 	float compteur = 15.0f;
-	float delay  =15.0f;
+	float delay = 15.0f;
 	int choixP1 = 0;
 	int choixP2 = 0;
 	int choixP3 = 0;
@@ -33,13 +34,9 @@ public class ScriptMenu : MonoBehaviour
 	int choixPersoP3 = 0;
 	int choixPersoP4 = 0;
 
-	//GROS TRUCS DEGUEU 4X4 IMAGES PERSO
-	//JOUEUR 1
-	public GameObject P1Char1;
-	public GameObject P1Char2;
-	//public GameObject P1Char3;
-	//public GameObject P1Char4;
-
+	//Tuto
+	float goTime;
+	bool goTimeON = false;
 
 	// Use this for initialization
 	void Start () 
@@ -67,6 +64,13 @@ public class ScriptMenu : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+
+		//TUTO
+		if ((goTimeON == true) && Time.time >= (goTime + 5)) 
+		{
+			Application.LoadLevel ("Niveau1");
+		}
+
 		if (Input.GetButtonDown ("Submit"))
 			BoutonOk ();
 
@@ -199,6 +203,7 @@ public class ScriptMenu : MonoBehaviour
 		secondMenu.SetActive (false);
 		thirdMenu.SetActive (false);
 		fourthMenu.SetActive (false);
+		fifthMenu.SetActive (false);
 		intMenu = 0;
 	}
 
@@ -235,37 +240,35 @@ public class ScriptMenu : MonoBehaviour
 		intMenu = 4;
 	}
 
+	public void FifthMenuON()
+	{
+		goTime = Time.time;
+		CacheCache ();
+		boutonBack.SetActive (false);
+		fifthMenu.SetActive (true);
+		intMenu = 5;
+		goTimeON = true;
+	}
+
 	public void BoutonOk(){
-		if (intMenu == 0)
-		{
+		if (intMenu == 0) {
 			FirstMenuON ();
-		}
-		else if (intMenu == 1)
-		{
+		} else if (intMenu == 1) {
 			SecondMenuON ();
-		}
-		else if (intMenu == 2)
-		{
+		} else if (intMenu == 2) {
 			ThirdMenuON ();
-		}
-		else if (intMenu == 4)
-		{
-			GoJouer ();
+		} else if (intMenu == 4) {
+			FifthMenuON ();
 		}
 	}
 
 	public void BoutonBack()
 	{
-		if (intMenu == 2) 
-		{
+		if (intMenu == 2) {
 			FirstMenuON ();
-		} 
-		else if (intMenu == 3) 
-		{
+		} else if (intMenu == 3) {
 			SecondMenuON ();
-		} 
-		else if (intMenu == 4) 
-		{
+		} else if (intMenu == 4) {
 			ThirdMenuON ();
 		}
 	}
