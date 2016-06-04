@@ -67,24 +67,47 @@ public class ScriptMenu : MonoBehaviour
 
 		if (intMenu == 3){
 
-			bool axisP1InUse = false; //le joueur 1 n'utilise pas son axis
 
-			if (Input.GetButtonDown ("Next")) //le joueur 1 vient d'appuyer sur la fleche droite dans sélection perso
+			//JOUEUR 1 APPUIE SUR LES GACHETTES
+			if (Input.GetButtonDown ("Next1")) //le joueur 1 vient d'appuyer sur la fleche droite dans sélection perso
 			{
-				if (axisP1InUse == false)
-				{
-					axisP1InUse = true;
-					FlecheP1Droite ();
-				}
+				FlecheP1Droite ();
 			}
-			else if (Input.GetButtonDown ("Previous"))  //le joueur 1 vient d'appuyer sur la fleche gauche dans sélection perso
+			else if (Input.GetButtonDown ("Previous1"))  //le joueur 1 vient d'appuyer sur la fleche gauche dans sélection perso
 			{
-				if (axisP1InUse == false)
-				{
-					axisP1InUse = true;
-					FlecheP1Gauche ();
-				}
+				FlecheP1Gauche ();
 			}
+
+			//JOUEUR 2 APPUIE SUR LES GACHETTES
+			if (Input.GetButtonDown ("Next2")) //le joueur 2 vient d'appuyer sur la fleche droite dans sélection perso
+			{
+				FlecheP2Droite ();
+			}
+			else if (Input.GetButtonDown ("Previous2"))  //le joueur 2 vient d'appuyer sur la fleche gauche dans sélection perso
+			{
+				FlecheP2Gauche ();
+			}
+
+			//JOUEUR 3 APPUIE SUR LES GACHETTES
+			if (Input.GetButtonDown ("Next3")) //le joueur 3 vient d'appuyer sur la fleche droite dans sélection perso
+			{
+				FlecheP3Droite ();
+			}
+			else if (Input.GetButtonDown ("Previous3"))  //le joueur 3 vient d'appuyer sur la fleche gauche dans sélection perso
+			{
+				FlecheP3Gauche ();
+			}
+
+			//JOUEUR 4 APPUIE SUR LES GACHETTES
+			if (Input.GetButtonDown ("Next4")) //le joueur 4 vient d'appuyer sur la fleche droite dans sélection perso
+			{
+				FlecheP4Droite ();
+			}
+			else if (Input.GetButtonDown ("Previous4"))  //le joueur 4 vient d'appuyer sur la fleche gauche dans sélection perso
+			{
+				FlecheP4Gauche ();
+			}
+
 				
 			if (Input.GetButtonDown ("Jump1")) {
 
@@ -249,7 +272,9 @@ public class ScriptMenu : MonoBehaviour
 	}
 
 
-	//fleche choix personnages pour les joueurs
+	//FLECHES CHOIX PERSO
+
+	//JOUEUR 1
 	public void FlecheP1Droite()
 	{
 		if (choixPersoP1 < 3) 
@@ -278,4 +303,77 @@ public class ScriptMenu : MonoBehaviour
 		}
 
 	}
+	//JOUEUR 2
+	public void FlecheP2Droite()
+	{
+		if (choixPersoP2 < 3) 
+		{
+			choixPersoP2++;
+		}
+		else if (choixPersoP2 == 3)
+		{
+			choixPersoP2 = 0;
+		}
+
+	}
+	public void FlecheP2Gauche()
+	{
+		if (choixPersoP2 > 0) 
+		{
+			choixPersoP2--;
+		}
+		else if (choixPersoP2 == 0)
+		{
+			choixPersoP2 = 3;
+		}
+	}
+	//JOUEUR 3
+	public void FlecheP3Droite()
+	{
+		if (choixPersoP3 < 3) 
+		{
+			choixPersoP3++;
+		}
+		else if (choixPersoP3 == 3)
+		{
+			choixPersoP3 = 0;
+		}
+
+	}
+	public void FlecheP3Gauche()
+	{
+		if (choixPersoP3 > 0) 
+		{
+			choixPersoP3--;
+		}
+		else if (choixPersoP3 == 0)
+		{
+			choixPersoP3 = 3;
+		}
+	}
+	//JOUEUR 4
+	public void FlecheP4Droite()
+	{
+		if (choixPersoP4 < 3) 
+		{
+			choixPersoP4++;
+		}
+		else if (choixPersoP4 == 3)
+		{
+			choixPersoP4 = 0;
+		}
+
+	}
+	public void FlecheP4Gauche()
+	{
+		if (choixPersoP4 > 0) 
+		{
+			choixPersoP4--;
+		}
+		else if (choixPersoP4 == 0)
+		{
+			choixPersoP4 = 3;
+		}
+	}
+
 }
