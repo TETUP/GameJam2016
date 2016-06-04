@@ -208,7 +208,7 @@ public class ScriptMenu : MonoBehaviour
 	public void SecondMenuON()//le joueur revient sur le menu principal
 	{
 		CacheCache ();
-		boutonBack.SetActive (true);
+		boutonBack.SetActive (false);
 		secondMenu.SetActive (true);
 		intMenu = 2;
 	}
@@ -216,6 +216,7 @@ public class ScriptMenu : MonoBehaviour
 	public void ThirdMenuON()//Choix du personnage - Insérer ici la connexion des joueurs
 	{
 		CacheCache ();
+		boutonBack.SetActive (true);
 		thirdMenu.SetActive (true);
 		intMenu = 3;
 	}
@@ -223,6 +224,7 @@ public class ScriptMenu : MonoBehaviour
 	public void FourthMenuON()//Choix de l'arène
 	{
 		CacheCache ();
+		boutonBack.SetActive (true);
 		fourthMenu.SetActive (true);
 		intMenu = 4;
 	}
