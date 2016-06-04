@@ -9,6 +9,8 @@ namespace Acrocatic {
 	public class Player : MonoBehaviour {
 
 		public int numJoueur = 0; // Numeros du joueur
+		public float dgt = 8.0f;
+		public float life = 115.0f;
 		// Public variables that shouldn't be shown in the inspector.
 		[HideInInspector]
 		public float hor;							// Get the Horizontal input.
@@ -105,7 +107,6 @@ namespace Acrocatic {
 			normalRotation = transform.localRotation;
 			animator = GetComponent<Animator>();
 			gravityScale = rigidbody.gravityScale;
-			
 			// Set the frontCheck and backCheck transform parent to the player's transform.
 			frontCheckTop.transform.parent = transform;
 			frontCheckBot.transform.parent = transform;
@@ -171,8 +172,9 @@ namespace Acrocatic {
 			animator.SetFloat("ySpeed", rigidbody.velocity.y);
 			animator.SetBool ("attacking", attacking);
 
-			if (Input.GetButtonDown ("Attack" + numJoueur)) 
+			if (Input.GetButtonDown ("Attack" + numJoueur)) {
 				animator.SetTrigger ("attacking");
+			}
 			
 
 			// The player is grounded if a circle at the groundcheck position overlaps anything on the ground layer.
@@ -586,5 +588,9 @@ namespace Acrocatic {
 		}
 		// ###           ###
 		// #################
+
+		public void ApplyDamage(float dgt){
+			life -= dgt;
+		}
 	}
 }
