@@ -5,6 +5,7 @@ public class BasicBot : MonoBehaviour {
 
 	GameObject objectif = null;
 	Rigidbody _rb = null;
+	public float speed = 1.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -15,16 +16,17 @@ public class BasicBot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (objectif != null)
-			_rb.velocity = Vector3.Normalize(objectif.transform.position-transform.position);
+			transform.position = Vector3.MoveTowards(transform.position, objectif.transform.position, speed*Time.deltaTime);
 		
 		//Determine le sens du personnage
-		if (_rb.velocity.x < 0)
+		if (objectif.transform.position.x < transform.position.x)
 			transform.localScale = new Vector3 (-1.0f, transform.localScale.y, transform.localScale.z);
-		else if (_rb.velocity.x > 0)
+		else if (objectif.transform.position.x > transform.position.x)
 			transform.localScale = new Vector3 (1.0f, transform.localScale.y, transform.localScale.z);
 	}
 
 	public void ChangeObjectif(){
+		
 		//Observe les sortie possible
 		GameObject[] allexit = GameObject.FindGameObjectsWithTag ("Exit");
 		GameObject selectExit = null;
@@ -40,5 +42,9 @@ public class BasicBot : MonoBehaviour {
 		}
 		//Change l'objectif du bot
 		objectif = selectExit;
+	}
+
+	void OnDestroy(){
+		WaveController.addDead ();
 	}
 }
