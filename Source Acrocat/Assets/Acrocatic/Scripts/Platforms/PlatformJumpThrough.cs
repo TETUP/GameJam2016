@@ -27,8 +27,8 @@ namespace Acrocatic {
 		void Start () {
 			// Setting up references.
 			player = GameObject.FindGameObjectWithTag("Player");
-			playerScript = player.GetComponent<Player>();
-			cols = player.GetComponents<Collider2D>();
+			playerScript = GetComponent<Player>();
+			cols = GetComponents<Collider2D>();
 		}
 
 		// Update is called once per frame.

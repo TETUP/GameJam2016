@@ -43,10 +43,12 @@ namespace Acrocatic {
 		[HideInInspector]
 		public bool jumping = false;				// Determines if the player is jumping.
 		[HideInInspector]
-		public bool jumpingThrough = false;			// Determines if the player is jumping through a platform.
+		public bool jumpingThrough = true;			// Determines if the player is jumping through a platform.
 		[HideInInspector]
 		public Rigidbody2D rigidbody;				// Cache the rigidbody of the player.
-		
+		[HideInInspector]
+		public bool attacking = false;
+
 		// Public variables.
 		[Tooltip("Select the direction in which the sprites are facing.")]
 		public Direction spriteDirection;
@@ -167,6 +169,12 @@ namespace Acrocatic {
 			animator.SetFloat("horizontal", Mathf.Abs(hor));
 			animator.SetFloat("xSpeed",  Mathf.Abs(rigidbody.velocity.x));
 			animator.SetFloat("ySpeed", rigidbody.velocity.y);
+			animator.SetBool ("attacking", attacking);
+
+			if (Input.GetButtonDown ("Attack" + numJoueur)) {
+				attacking = true;
+			} else
+				attacking = false;
 
 			// The player is grounded if a circle at the groundcheck position overlaps anything on the ground layer.
 			// Only perform the check if the player is not on a platform.

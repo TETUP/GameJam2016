@@ -95,7 +95,6 @@ namespace Acrocatic {
 			
 			// If the jump button is pressed, jumps are allowed and the player is not dashing, sliding, on a ladder or crouching under an obstacle...
 			if(!jump && Input.GetButtonDown("Jump" + numJoueur) && jumps > 0 && !player.dashing && !player.sliding && !player.onLadder && (!player.crouching || (player.crouching && player.AllowedToStandUp()))) {
-				Debug.Log ("test");
 				// If the player is grounded...
 				if (player.grounded) {
 					// ... initialize jump.
@@ -239,7 +238,7 @@ namespace Acrocatic {
 			jump = true;
 			initialJump = true;
 			player.jumping = true;
-			
+
 			// Reset the jumpTimer.
 			jumpTimer = holdToJumpHigher.jumpTime;
 		}
