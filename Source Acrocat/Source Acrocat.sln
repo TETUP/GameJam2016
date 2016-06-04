@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{A88AC283-C5B6-0D2D-6EEA-62AA5D4940AC}") = "Source Acrocat", "Assembly-CSharp.csproj", "{7EFF7D4C-3E65-CE2C-08BF-3169F32691DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EFF7D4C-3E65-CE2C-08BF-3169F32691DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFF7D4C-3E65-CE2C-08BF-3169F32691DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFF7D4C-3E65-CE2C-08BF-3169F32691DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFF7D4C-3E65-CE2C-08BF-3169F32691DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

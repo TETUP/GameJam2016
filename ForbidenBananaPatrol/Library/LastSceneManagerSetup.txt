@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/MONSIEUR_LARRY 1.unity
+- path: Assets/Scene/Niveau1.unity
   isLoaded: 1
   isActive: 1
