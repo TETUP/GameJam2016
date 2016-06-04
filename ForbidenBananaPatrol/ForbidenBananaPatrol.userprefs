@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TouchBanana.cs">
     <Files>
-      <File FileName="Assets\Script\PlayerController.cs" Line="40" Column="3" />
+      <File FileName="Assets\Script\PlayerController.cs" Line="28" Column="9" />
       <File FileName="Assets\Script\SpawnPlayer.cs" Line="15" Column="3" />
+      <File FileName="Assets\Script\BasicBot.cs" Line="25" Column="3" />
+      <File FileName="Assets\TouchBanana.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
