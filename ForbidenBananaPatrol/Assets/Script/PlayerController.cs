@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-
+	int variable = 0;
 	public int numJoueur = 0;
 	public float jumpForce = 250.0f;
 	public float moveSpeed = 8.0f;
@@ -36,6 +36,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Jump(){
-		_rb.AddForce (jumpForce*transform.up);
+
+		if (variable < 2) {
+			_rb.AddForce (jumpForce * transform.up);
+			variable = variable + 1;
+			Debug.Log (variable);
+		}
+		else 
+			Debug.Log ("Déja en double saut !");
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		variable = 0;
+		Debug.Log ("Toucher ^^");
 	}
 }
