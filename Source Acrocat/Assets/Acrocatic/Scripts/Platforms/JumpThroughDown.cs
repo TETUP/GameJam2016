@@ -14,7 +14,7 @@ namespace Acrocatic {
 		void Start() {
 			// Setting up references.
 			player = GameObject.FindGameObjectWithTag("Player");
-			playerScript = player.GetComponent<Player>();
+			playerScript = GetComponent<Player>();
 			platform = GetComponentInParent<PlatformJumpThrough>();
 		}
 
